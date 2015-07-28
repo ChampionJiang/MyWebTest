@@ -47,8 +47,7 @@ try{
 				saveurl = request.getSession().getServletContext().getRealPath("/") + url;
 				saveurl += filename + "." + ext; //保存路径
 				myFile.saveAs(saveurl, SmartUpload.SAVE_PHYSICAL);
-				//out.print(filename);
-				//-----------------------上传完成，开始生成缩略图-------------------------    
+				    
 				java.io.File file = new java.io.File(saveurl); //读入刚才上传的文件
 				newurl = request.getSession().getServletContext().getRealPath("/") + url + filename
 						+ "_min." + ext; //新的缩略图保存地址
