@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <style>
+
+    .clearFix {
+        overflow: auto;
+        zoom: 1;
+    }
+
+     .gridBox {
+        display: inline-block;
+         float: left;
+         width: 500px;
+         height: 400px;
+         border: 3px solid cadetblue;
+         overflow: auto;
+     }
+
+     .loginPanel {
+        float: left;
+        display: inline-block;
+     }
+
+     input {
+         display: block;
+     }
+
+
+     .tooltipDiv{
+         position: fixed;
+         border: 1px solid green;
+         font-size: 0pt;
+     }
+    .tooltipDiv img{
+        width: 400px;
+        height: 600px;
+    }
+
+    .faq {
+        position: absolute;
+        top: 400px;
+    }
+
+    .highlight_background {
+        background: #FF3300;
+    }
+
+
+    #footer {
+        font-size: 2em;
+        position: absolute;
+        top: 3500px;
+    }
+    #bottom {
+        font-size: 2em;
+        position: absolute;
+        top: 7500px;
+    }
+
+    </style>
+
+
+    <script src="//cdn.bootcss.com/jquery/2.1.0/jquery.min.js"></script>
+    <script src="libs/uploader.js"></script>
+
+    <title>Box model</title>
+
+</head>
+<body>
+
+
+
+
+<div  style="position: relative;border: 1px red solid">
+    <div class="loginPanel">
+        <fieldset class="userInformation">
+            <legend> 用户信息</legend>
+
+            <form id="userInput">
+                <label for="userName"> 用户姓名:</label>
+                <input id="userName" name="userName" type="text" placeholder="输入姓名"/>
+
+                <label for="userPasscode"> 用户密码:</label>
+                <input name="userPasscode" id="userPasscode" type="password" placeholder="输入密码"/>
+
+                <input id="userOption" name1="useOption" type="checkbox" style="display:inline-block"/>
+                <label for="userOption" style="display: inline-block"> 记住用户名与密码 </label>
+
+                <input id="submitBtn"  type="submit" value="提交"/>
+            </form>
+        </fieldset>
+    </div>
+
+
+    <div class="gridBox" >
+        scroll block
+        <div class="gridCtn"
+             style="position: relative; width : 1500px; height : 1400px; background-color: red">
+
+             </div>
+    </div>
+
+
+    <div class = "gridBox">
+        fileUploader-1
+        <input type = file id = 'fileSelector1' name="选择本地文件">
+        <!--<input type = button id = "fileSubmittor1" value="提交">-->
+    </div>
+
+    <div class = "gridBox">
+        fileUploader-2
+        <input type = file id = 'fileSelector2' name="选择本地文件">
+        <!--<input type = button id = "fileSubmittor2" value="提交">-->
+    </div>
+
+</div>
+
+<div class="faq clearFix">
+
+<!--<h5><a href="#footer"> what is this</a></h5>-->
+
+<!--<div class = "answerContent">-->
+    <!--content: to make the computer smarter and fastercontent: to make the computer smarter and fastercontent: to make the computer smarter and fastercontent: to make the computer smarter and fastercontent: to make the computer smarter and fastercontent: to make the computer smarter and faster-->
+
+<!--</div>-->
+
+
+</div>
+
+
+
+<!--<div id = "footer"> <h2> This is the footer of the document </h2><p>This is the footer of the document This is the footer of the document This is the footer of the document This is the footer of the document This is the footer of the document </p></div>-->
+
+<!--<div id = "bottom"> <h2> This is the bottom of the document </div>-->
+
+</body>
+<script>
+
+
+
+
+    $('document').ready(function() {
+
+        $('#submitBtn').click(function(event) {
+
+            event.preventDefault();
+
+            var userNameForm = $('#userInput');
+            var result = userNameForm.serialize();
+
+            window.console.log(result);
+        });
+
+        //attach the tooltip to gridBox.
+//        var oldcolor = null,
+//                kPaddingY = 10,
+//                kPaddingX = 10;
+
+
+
+        //gridBox
+//        $('.gridBox').mouseover(function(e) {
+//            if (!!oldcolor === false && oldcolor !== 0) {
+//                oldcolor = $(this).css('background-color');
+//            }
+//
+//            $(this).css({'background-color': 'green'});
+//            var tooltipBoxer = null;
+//            tooltipBoxer = $('<div class="tooltipDiv"><img src = "res/sd.jpg" alt ="stone" /></div>');
+//            tooltipBoxer.css(
+//                    {
+//                        'top': (e.pageY + kPaddingY) + 'px',
+//                        'left': (e.pageX + kPaddingX) + 'px'
+//                    }
+//            ).appendTo($('.gridBox'));
+//
+//
+//        })
+//        .mouseout(function (e) {
+//            $(this).css({'background-color': String(oldcolor)});
+//            var tooltipBoxer = $('.tooltipDiv');
+//            tooltipBoxer.remove();
+//           tooltipBoxer = null;
+//        })
+//        .mousemove(function(e){
+//            var tooltipBoxer = $('.tooltipDiv');
+//            tooltipBoxer.css({
+//                'top': (e.pageY + kPaddingY) + 'px',
+//                'left': (e.pageX + kPaddingX) + 'px'
+//            });
+//        });
+
+
+
+        //////
+//        $('.faq h5').click(
+//            function(e){
+//                $(this).next().toggle('slow');
+//            }
+//        );
+//
+//        $('.faq h5 a').hover(
+//            function(e) {
+//                $(this).next().slideUp('slow');
+//                $(this).addClass('highlight_background');
+//            },
+//            function(e) {
+//                $(this).next().slideDown('slow');
+//                $(this).removeClass('highlight_background');
+//            }
+//
+//        );
+        /////////////////////
+
+
+
+        var onUploadOk = function(data, status) {
+            window.console.log('upload success');
+            //[to do] clear 'File' in input
+
+        },
+
+        onUploadFail = function(data, status, e) {
+            window.console.log('upload failed');
+            //[to do] clear 'File' in input
+        };
+
+        var options = {
+            //timeout: 1000,
+            url: 'http://10.197.36.173:8888/MyWebTest/ExcelImport.jsp',
+            type: "post",
+            data: {name: "fileUploading"},
+            dataType: 'html',
+            secureuri: false,
+            //fileElementId: fileSelectorId,
+            success: onUploadOk,
+            error: onUploadFail
+        };
+
+        $('#fileSelector1').change(function(e) {
+            _fileUploader(options, 'fileSelector1', 2);
+        });
+
+        $('#fileSelector2').change(function(e) {
+            _fileUploader(options, 'fileSelector2', 1);
+        });
+
+
+
+    });
+
+</script>
+
+
+
+
+</html>
