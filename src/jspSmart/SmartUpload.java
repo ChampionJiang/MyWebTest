@@ -89,7 +89,6 @@ public class SmartUpload {
 		int i = 0;
 		long l = 0L;
 		boolean flag1 = false;
-		String filename = m_request.getParameter("filename");
 		String s4 = new String();
 		String s5 = new String();
 		String s6 = new String();
@@ -498,10 +497,6 @@ public class SmartUpload {
 			throw new IllegalArgumentException("There is no specified destination file (1140).");
 		if (s.equals(""))
 			throw new IllegalArgumentException("There is no specified destination file (1140).");
-		if (s.lastIndexOf("/") >= 0) {
-			s1 = s.substring(0, s.lastIndexOf("/"));
-			s2 = s.substring(s.lastIndexOf("/") + 1);
-		}
 		if (s.lastIndexOf("/") >= 0) {
 			s1 = s.substring(0, s.lastIndexOf("/"));
 			s2 = s.substring(s.lastIndexOf("/") + 1);
