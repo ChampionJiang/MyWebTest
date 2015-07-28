@@ -39,8 +39,7 @@ private SingleColumn columns[];
 	
 	public void Print()
 	{
-		//System.out.println(name);//+value+" "+num);
-		
+	
 		for (SingleColumn c: columns)
 		{
 			c.Print();
