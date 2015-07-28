@@ -48,14 +48,6 @@ public class ExcelImport {
 			m_su.upload();
 			
 			File file = m_su.getFiles().getFile(0);
-//			String url = "uploadfile\\excel\\";
-//			Calendar calendar = Calendar.getInstance();
-//			String filename = String.valueOf(calendar.getTimeInMillis());
-//			String saveurl = m_request.getSession().getServletContext().getRealPath("/") + url;
-//			saveurl += filename + "." + file.getFileExt(); //保存路径
-//			file.saveAs(saveurl, SmartUpload.SAVE_PHYSICAL);
-			//out.print(filename);
-			//-----------------------上传完成，开始生成缩略图-------------------------
 			
 			m_workbook = new XSSFWorkbook(file.getInputStream());
 			
